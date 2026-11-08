@@ -13,7 +13,7 @@ function ProjectForm({ addProject }) {
 
     addProject({
       id: Date.now(),
-      title,
+      title,ow
       description,
     });
 
