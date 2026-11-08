@@ -1,7 +1,8 @@
 import { useState } from "react";
+
 function ProjectForm({ addProject }) {
-  const [title, setTitle] = React.useState("");
-  const [description, setDescription] = React.useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -13,8 +14,8 @@ function ProjectForm({ addProject }) {
 
     addProject({
       id: Date.now(),
-      title,ow
-      description,
+      title: title,
+      description: description,
     });
 
     setTitle("");
