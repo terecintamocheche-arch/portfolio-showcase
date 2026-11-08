@@ -3,23 +3,26 @@ import { useState } from "react";
 function ProjectForm({ addProject }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
 
     if (!title.trim() || !description.trim()) {
-      alert("Please fill in both fields.");
+      alert("Please fill in the title and description.");
       return;
     }
 
     addProject({
       id: Date.now(),
-      title: title,
-      description: description,
+      title,
+      description,
+      image,
     });
 
     setTitle("");
     setDescription("");
+    setImage("");
   }
 
   return (
@@ -37,10 +40,16 @@ function ProjectForm({ addProject }) {
         onChange={(e) => setDescription(e.target.value)}
       />
 
+      <input
+        type="url"
+        placeholder="Paste project image URL (optional)"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
+      />
+
       <button type="submit">Add Project</button>
     </form>
   );
 }
 
 export default ProjectForm;
-
